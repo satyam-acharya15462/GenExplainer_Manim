@@ -4,9 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet">
     <title>frontend</title>
   </head>
-  <body>
+
+  <body class="bg-black text-white">
+
+<div class="text-white flex gap-8">
+  <img src="menu_icon.png" alt="My Image" class="ml-5 my-4 brightness-1000" style="max-width: 100%; height: auto;" />
+<select>
+  <option value="">Auto</option>
+</select>
+
+</div>
+
+<div class="text-white min-h-132 w-full flex flex-col justify-center items-center">
+<div class="text-4xl mb-5">
+  <h1>Hi,what's in your mind[Username]</h1>
+</div>
+  
+  <div class="relative w-2xl">
+      <img src="plus_icon.png" alt="Plus Icon" class="absolute left-3 top-1/2 -translate-y-1/2  w-5 h-5 brightness-0 invert">
+    <input type="text" placeholder="Ask anything" class="text-white bg-gray-950 border rounded-lg h-10 w-full pl-25 border-gray-800  ">
+  </div>
+
+</div>
+
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
