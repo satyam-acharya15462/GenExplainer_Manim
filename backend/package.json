@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "scripts": {
-    "dev": "bun run --hot src/index.ts"
+    "dev": "C:\\Users\\ACER\\.bun\\bin\\bun.exe  run --hot src/index.ts"
   },
   "dependencies": {
     "@hono/standard-validator": "^0.4.1",

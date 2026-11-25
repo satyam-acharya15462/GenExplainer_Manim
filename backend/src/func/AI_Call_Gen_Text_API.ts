@@ -14,22 +14,36 @@ const AI_Test_API_Call = async(prompt : String) =>{
          apiKey: process.env.GOOGLE_API_KEY,
      })
 
-    const outputSchema = z.object({
+    const BeatSchema = z.object({
         narration: z
         .string()
         .describe(`1-4 spoken sentences in the targated language . pure speech : no Latex , no symbols like √ or ² : write formulas as spoke words`),
         pauseAfterMs : z
         .number()
         .describe(`silenc after this beat in milliseconds , 300-1500.`),
+        explanation : z
+        .string()
+        .describe(`explain the concept for which you have written the manim code make sure the explanation is in the language of the lesson provided by the user in the same script of the lesson`),
         code :z
         .string()
-        .describe(`body of an async js function with params (scene , d , M). no imports  , no function wrapper ,  no markdown fences , no export , no comments , no extra spaces`)
+        .describe(`body of an async js function with params (scene , d , M). no imports  , no function wrapper ,  no markdown fences , no export , no comments , no extra spaces it should be a manim-web based plugin function`)
     })
   const lessonSchema = z.object({
     title : z.string().describe(`title of the lesson in the target language`),
-    beats  : z.array(outputSchema).describe(`4 to 8 beats , in teaching order`)
+    beats  : z.array(BeatSchema).describe(`4 to 8 beats , in teaching order`)
   })
   type lesson  = z.infer<typeof lessonSchema>
+
+  const structuredPrompt = ChatPromptTemplate.fromMessages([
+    ("system" , 
+      ``
+    )
+  ])
+
+
+
+
+
 
   
   const structured = model.withStructuredOutput(lessonSchema, {
