@@ -34,14 +34,7 @@ const AI_Test_API_Call = async(prompt : String) =>{
   })
   type lesson  = z.infer<typeof lessonSchema>
 
-  const structuredPrompt = ChatPromptTemplate.fromMessages([
-    ("system" , 
-      ``
-    )
-  ])
-
-
-
+ 
 
 
 
